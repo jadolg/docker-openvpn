@@ -1,0 +1,12 @@
+version: '2'
+services:
+  openvpn:
+    cap_add:
+     - NET_ADMIN
+    image: myownvpn
+    container_name: openvpn
+    ports:
+     - "51.75.170.29:1194:1194/udp" #listen on standard openvpn port
+    restart: always
+    volumes:
+     - ./vpn-data:/etc/openvpn
